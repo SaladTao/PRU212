@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3679447214241591945}
   - component: {fileID: 2636565917935774262}
+  - component: {fileID: -2614880291582525170}
   m_Layer: 0
   m_Name: EXP_0
   m_TagString: Exp
@@ -87,3 +88,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2614880291582525170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568376995416938806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccb5adfc3aa676498c44d38878ac6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update_interval: 0.1
