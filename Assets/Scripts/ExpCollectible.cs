@@ -1,16 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Drawing;
-
-public class RemovedOnTouchPlayer : MonoBehaviour
+public class ExpCollectible : MonoBehaviour
 {
-    public GameObject player;
 
 
- public GameObject expPrefab; // Prefab của EXP
-    public int expAmount = 10;   // Số EXP rơi ra
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +21,7 @@ public class RemovedOnTouchPlayer : MonoBehaviour
         if (last_update_delta_time > update_interval)
         {
             last_update_delta_time = 0;
+             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
             {
@@ -57,14 +53,8 @@ public class RemovedOnTouchPlayer : MonoBehaviour
                 if (!Rectangle.Intersect(player_rectangle, gameObject_rectangle).IsEmpty)
                 {
                     ObjectPoolManager.ReturnGameObjectToPool(gameObject);
-                    SpawnEnemies.current_spawned_obj_count -= 1;
-                    var player_hp_state = player.GetComponent<PlayerHP>();
-                    if(player_hp_state != null)
-                    {
-                        player_hp_state.on_hit(1);
+                    
 
-                    }
-                    Die();
                 }
             }
         }
@@ -83,24 +73,11 @@ public class RemovedOnTouchPlayer : MonoBehaviour
     //    }
     //    //Debug.Log(collision.gameObject.name);
     //}
-   
 
-   
 
-    private void Die()
-    {
-        DropExp();
-       ObjectPoolManager.ReturnGameObjectToPool(gameObject);
-         
-    }
 
-    private void DropExp()
-    {
-        if (expPrefab != null)
-        {
-            Vector3 dropPosition = transform.position + new Vector3(0, 0.5f, 0);
-            // Instantiate(expPrefab, dropPosition, Quaternion.identity);
-            ObjectPoolManager.SpawnNewGameObject(expPrefab, dropPosition, Quaternion.identity);
-        }
-    }
+
+
+
+
 }

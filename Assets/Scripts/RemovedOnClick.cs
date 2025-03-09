@@ -36,7 +36,7 @@ public class RemovedOnClick : MonoBehaviour
         //}
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         //Debug.Log("mousedown");
         ObjectPoolManager.ReturnGameObjectToPool(gameObject);
